@@ -66,4 +66,5 @@ See [./scripts](./scripts)
 - https://www.nas.nasa.gov/hecc/support/kb/using-the-nas-recommended-mpt-library_305.html
 - https://www.nas.nasa.gov/hecc/support/kb/preparing-to-run-on-pleiades-haswell-nodes_491.html
 - https://www.nas.nasa.gov/hecc/support/kb/pleiades-devel-queue_290.html
-
+- https://www.nas.nasa.gov/hecc/support/kb/pbs-environment-variables_178.html
+- https://www.nas.nasa.gov/hecc/support/kb/default-variables-set-by-pbs_189.html
