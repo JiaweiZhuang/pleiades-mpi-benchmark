@@ -58,6 +58,8 @@ Set `export MPI_USE_TCP=true` to force TCP/IP interconnect instead of InfiniBand
 
 See [./scripts](./scripts)
 
+    cd scripts/
+    qsub run_pt2pt.pbs
 
 ## Reference
 
