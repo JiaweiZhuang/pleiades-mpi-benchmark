@@ -6,13 +6,13 @@ else
   exit 1
 fi
 
-module purge
-module load mpi-sgi/mpt
-
 if [ -z $OSU_PATH_SGIMPT ]; then
   echo 'Must specify $OSU_PATH_SGIMPT'
   exit 1
 fi
+
+module purge
+module load mpi-sgi/mpt
 
 cd $OSU_PATH_SGIMPT/libexec/osu-micro-benchmarks/mpi/pt2pt
 
