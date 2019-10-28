@@ -18,5 +18,5 @@ unset MPI_USE_TCP
 for i in $(seq 1 $REPEAT); do
     echo "run $i of $REPEAT"
     SUB_LOG_DIR=$TOP_LOG_DIR/run${i}/
-    bash ./bcast_sgimpt.sh $SUB_LOG_DIR/bcast.log
+    bash ./bcast_sgimpt.sh $SUB_LOG_DIR
 done
