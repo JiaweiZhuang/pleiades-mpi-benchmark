@@ -2,6 +2,8 @@
 #PBS -q devel
 #PBS -l select=2:ncpus=24:mpiprocs=24:model=has,walltime=1:00:00
 
+cd $PBS_O_WORKDIR
+
 TOP_LOG_DIR=$HOME/mpi-benchmark/osu_log/pt2pt/
 REPEAT=10
 
