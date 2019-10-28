@@ -1,0 +1,22 @@
+#PBS -S /bin/bash
+#PBS -q devel
+#PBS -l select=12:ncpus=24:mpiprocs=24:model=has,walltime=1:00:00
+
+cd $PBS_O_WORKDIR
+
+n=$(cat $PBS_NODEFILE | wc -l)
+N=$(cat $PBS_NODEFILE | uniq | wc -l)
+echo "Using $N nodes, $n cores"
+
+TOP_LOG_DIR=$HOME/mpi-benchmark/osu_log/allreduce/N${N}n${n}/
+REPEAT=5
+
+echo "Top-level output dir: $TOP_LOG_DIR"
+
+unset MPI_USE_TCP
+
+for i in $(seq 1 $REPEAT); do
+    echo "run $i of $REPEAT"
+    SUB_LOG_DIR=$TOP_LOG_DIR/run${i}/
+    bash ./allreduce_sgimpt.sh $SUB_LOG_DIR
+done
