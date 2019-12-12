@@ -53,6 +53,12 @@ Point-to-point latency and bandwidth:
 
 Set `export MPI_USE_TCP=true` to force TCP/IP interconnect instead of InfiniBand RDMA. (ref [HPE MPI user guide](https://support.hpe.com/hpsc/doc/public/display?docId=emr_na-a00037728en_us)). This will severely degrade MPI performance and should never be used for real model runs.
 
+For multi-pair bandwidth, make sure that the first half of ranks are on one node:
+
+    MPI_SHEPHERD=true mpiexec -np 48 -perhost 24 hostname
+    mpiexec -np 48 -perhost 24 ./osu_mbw_mr
+
+For collectives, see batch scripts below.
 
 ### Batch script
 
@@ -60,6 +66,9 @@ See [./scripts](./scripts)
 
     cd scripts/
     qsub run_pt2pt.pbs
+    qsub run_pt2pt_multi.pbs
+    qsub run_bcast.pbs
+    qsub run_allreduce.pbs
 
 ## Reference
 

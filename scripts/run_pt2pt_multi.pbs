@@ -1,0 +1,23 @@
+#PBS -S /bin/bash
+#PBS -q devel
+#PBS -l select=2:ncpus=24:mpiprocs=24:model=has,walltime=2:00:00
+
+cd $PBS_O_WORKDIR
+
+TOP_LOG_DIR=$HOME/mpi-benchmark/osu_log/pt2pt_multi/
+REPEAT=10
+
+echo "Top-level output dir: $TOP_LOG_DIR"
+
+for i in $(seq 1 $REPEAT); do
+    echo "run $i of $REPEAT"
+
+    SUB_LOG_DIR=$TOP_LOG_DIR/run${i}/
+
+    unset MPI_USE_TCP  # default InfiniBand RDMA
+    bash ./pt2pt_multi_sgimpt.sh $SUB_LOG_DIR/rdma
+
+    export MPI_USE_TCP=true  # use TCP to see how slow it is
+    bash ./pt2pt_multi_sgimpt.sh $SUB_LOG_DIR/tcp
+
+done
