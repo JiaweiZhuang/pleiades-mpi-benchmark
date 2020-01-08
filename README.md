@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3601526.svg)](https://doi.org/10.5281/zenodo.3601526)
+
 MPI Benchmark on [NASA Pleiades](https://www.nas.nasa.gov/hecc/resources/pleiades.html)
 
 To compare with https://github.com/JiaweiZhuang/aws-mpi-benchmark
